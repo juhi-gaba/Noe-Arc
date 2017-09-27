@@ -42,7 +42,7 @@ public class NoeArcRecord {
      *
      * @param input Data that is going to be processed.
      */
-    private static void processInput(String input) {
+    protected static void processInput(String input) {
         String[] inputRecord = input.split(",");
 
         List<String> consoleInput = Arrays.asList(inputRecord);
@@ -70,10 +70,15 @@ public class NoeArcRecord {
     /**
      * Process output.
      */
-    private static void processOutput() {
-        for (String name : listCompleted){
+    protected static String processOutput() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String name : listCompleted) {
             System.out.println(name + " completed");
+            stringBuilder.append(name).append(" ").append("completed")
+                    .append("\n");
         }
+
+        return stringBuilder.toString();
     }
 }
 
